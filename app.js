@@ -1,4 +1,3 @@
-# neoland-review-basics
 //**Iteración #1: Mix for e includes**
 //Dado el siguiente javascript usa forof para recorrer el array de películas, genera un nuevo array con las categorías de las películas e 
 //imprime por consola el array de categorías. Ten en cuenta que las categorías no deberían repetirse. 
@@ -20,7 +19,16 @@ const movies = [
     {title: 'El gato con guantes', duration: 111, categories: ['comedia', 'aventura', 'animación']},
 ]
 
-
+for (movie of movies) {
+        for (category of movie.categories) {
+            if (!categorias.includes(category)) {
+                categorias.push(category)
+            }/*else {
+                categorias.push("duplicado")
+            }*/
+        }
+    }
+console.log(categorias)
 
 
 //**Iteración #2: Mix Fors**
@@ -59,6 +67,24 @@ const users = [
 
 //Dado el siguiente javascript usa forof y forin para hacer la media del volumen de todos los sonidos favoritos que tienen los usuarios.
 
+//1.- recorremos el array completo con un forof
+//2.- recorremos los objetos del array con un for in
+//3.- 
+
+let arrayNuevo = [];
+let value;
+  for (const usuarios of users) {
+    for (const key in usuarios.favoritesSounds ) {
+        arrayNuevo.push( usuarios.favoritesSounds[key].volume );
+    }
+  }
+
+  let acumulador = 0;
+  let valorArray = arrayNuevo.length;
+  arrayNuevo.forEach( (e) => {
+    acumulador += e;
+  });
+  console.log('la media total es:', acumulador / valorArray);
 
 
 /**Iteración #3: Mix Fors**
@@ -112,9 +138,24 @@ Sugerencia de función:*/
 
 const animales = ['Caracol', 'Mosquito', 'Salamandra', 'Axolotl']
 
+const buscador = (array, text) => {
+    array.forEach ((element, index) => {
+        if (text == element) {
+            console.log(index)
+        }
+    })
+}
 
+buscador(animales, "Caracol")
+buscador(animales, "Salamandra")
+buscador(animales, "Axolotl")
+buscador(animales, "Mosquito")
+buscador(animales, "PV")
 
-
+//1.- crear funcion findArrayIndex
+//2.- este Array debe recibir 2 parametros: array de textos y 1 texto
+//3.- devuelve la posicion (indice) del array cuando el valor del array sea = al valor del texto que enviaste como parametro.
+//4.- haz varios ejemplos, y compruebalos :3 
 /*---------------------------------------------------*/
 
 
@@ -139,5 +180,7 @@ Sugerencia de array:*/
 //jsx
 
 const array1 = ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño'];
+console.log('array1:', array1);
 
-
+const swap = array1.reverse();
+console.log('swap:', swap);
